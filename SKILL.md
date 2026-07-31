@@ -49,12 +49,15 @@ Follow this order:
 ## Scripts
 
 - `scripts/core/build_input_json.py`: build one-day normalized input JSON from Feishu or local source files.
+- `scripts/core/organize_downloads.py`: classify freshly downloaded raw files into `YYYY-MM-DD/平台/` local folders.
+- `scripts/core/upload_to_feishu_drive.py`: upload organized local folders or files into Feishu Drive.
 - `scripts/core/daily_report_pipeline.py`: update workbook, compute month progress, sync Base, and build/send report artifacts.
 - `scripts/core/prepare_month_workbook.py`: create or refresh monthly workbook structure.
 - `scripts/core/refresh_month_progress_base.py`: refresh month progress in Base from workbook data.
 - `scripts/core/send_card.py`: send a generated interactive report card with retry logic.
 - `scripts/entrypoints/run_month_all.sh`: one-shot day runner.
 - `scripts/entrypoints/run_month_resume.sh`: resumable day runner.
+- `scripts/entrypoints/run_local_ingest.sh`: local file organization plus optional Feishu upload handoff.
 - `scripts/automation/feishu_report_button.py`: listener for the Feishu interactive card button.
 - `scripts/automation/send_report_button.sh`: send the trigger card to the operator.
 

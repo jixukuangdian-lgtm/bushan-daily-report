@@ -59,3 +59,11 @@ Preferred file set:
 After local organization, upload the date folder or its platform subfolders to the matching Feishu drive date folder.
 
 Keep file names unchanged whenever possible so the parsing logic can rely on the naming patterns.
+
+## Included skill scripts
+
+- `scripts/core/organize_downloads.py`
+- `scripts/core/upload_to_feishu_drive.py`
+- `scripts/entrypoints/run_local_ingest.sh`
+
+These scripts are the reusable first-pass implementation for the ingest stage. Adapt the naming tokens and folder-token mapping through config, not by hardcoding new business rules into the runner.
