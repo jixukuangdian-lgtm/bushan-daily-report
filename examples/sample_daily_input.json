@@ -1,0 +1,122 @@
+{
+  "date": "2026-07-29",
+  "coverage_note": "自动口径：当前已纳入 小红书、抖音、有赞、视频号大号、视频号小号。 小红书、抖音按下载 Excel 口径。 有赞按订单 CSV 与退款 CSV 汇总。 视频号大号按两个场景构成文件汇总，实际成交按成交金额减成交退款金额，直播间实际成交单独拆分，其余场景并入商品卡。 视频号小号按场景构成文件统计，实际成交按成交金额减成交退款金额，直播间实际成交单独拆分，其余场景并入商品卡。 当前仅复用既有平台解析逻辑生成单日输入 JSON，不重建整月工作簿。",
+  "conclusion": "当前已解析到 7 条平台口径明细，覆盖 5 个有文件的平台：小红书、抖音、有赞、视频号大号、视频号小号。",
+  "entries": [
+    {
+      "platform": "小红书",
+      "account": "直播",
+      "gmv": 23601.7,
+      "actual": 20942.1,
+      "refund": 2659.6,
+      "orders": 192,
+      "buyers": 152,
+      "status": "完整",
+      "source": "小红书下载 Excel《商家成交数据概览-all(2026-07-29).xlsx》；直播口径优先取不山直播支付金额+云南不山直播支付金额，直播退款优先取不山直播退款金额（支付时间）+云南不山直播退款金额（支付时间）；若源文件仍为旧版结构，则回退到直播支付金额、直播退款金额（支付时间）；直播实际销售额=直播GMV-直播退款。",
+      "live_actual": null,
+      "card_actual": null
+    },
+    {
+      "platform": "小红书",
+      "account": "商品卡",
+      "gmv": 8519.8,
+      "actual": 8255.83,
+      "refund": 263.97,
+      "orders": 76,
+      "buyers": 67,
+      "status": "完整",
+      "source": "小红书下载 Excel《商家成交数据概览-all(2026-07-29).xlsx》；商品卡口径=笔记支付金额+商卡支付金额，退款取笔记退款金额（支付时间）+商卡退款金额（支付时间）。",
+      "live_actual": null,
+      "card_actual": null
+    },
+    {
+      "platform": "抖音",
+      "account": "直播间",
+      "gmv": 13483.85,
+      "actual": 12255.8,
+      "refund": 1228.05,
+      "orders": 144,
+      "buyers": 116,
+      "status": "完整",
+      "source": "抖音下载 Excel《抖音电商罗盘-成交分析-20260729-20260729.xlsx》；直播间口径取成交概览中载体类型=直播、投放时段=不限。",
+      "live_actual": null,
+      "card_actual": null
+    },
+    {
+      "platform": "抖音",
+      "account": "商品卡",
+      "gmv": 6677.3,
+      "actual": 5977.15,
+      "refund": 700.15,
+      "orders": 87,
+      "buyers": 76,
+      "status": "完整",
+      "source": "抖音下载 Excel《抖音电商罗盘-成交分析-20260729-20260729.xlsx》；商品卡口径取成交概览中载体类型=商品卡+其他、投放时段=不限。",
+      "live_actual": null,
+      "card_actual": null
+    },
+    {
+      "platform": "有赞",
+      "account": "商城",
+      "gmv": 31635.36,
+      "actual": 29472.78,
+      "refund": 2162.58,
+      "orders": 355,
+      "buyers": null,
+      "status": "完整",
+      "source": "有赞下载文件《Order_youzan_2026-07-30-14-36-27_943dd70b6cc286ff7a5597cda912f18f.csv、Refund_youzan_2026-07-30-14-36-40_02180b2a4a6c0665bc63ebe94ed85e7d (1).csv》；GMV 按买家付款时间汇总订单实付金额，退款按退款完成时间汇总退款成功金额。",
+      "live_actual": null,
+      "card_actual": null,
+      "refund_records": 24,
+      "source_note": "有赞累计明细校准；退款来源覆盖本月1日至2026-07-29"
+    },
+    {
+      "platform": "视频号",
+      "account": "大号",
+      "gmv": 5526.2,
+      "actual": 5400.2,
+      "refund": 126.0,
+      "orders": 49,
+      "buyers": 47,
+      "status": "完整",
+      "source": "视频号大号下载文件《场景构成-20260729-20260729B1.xlsx、场景构成-20260729-20260729B2.xlsx》；口径=两个场景构成文件汇总；实际成交按成交金额-成交退款金额，直播间实际成交按直播间成交金额-直播间成交退款金额，其余场景计入商品卡。",
+      "live_actual": 99.0,
+      "card_actual": 5301.2
+    },
+    {
+      "platform": "视频号",
+      "account": "小号",
+      "gmv": 16754.25,
+      "actual": 15728.52,
+      "refund": 1025.73,
+      "orders": 235,
+      "buyers": 220,
+      "status": "完整",
+      "source": "视频号小号下载文件《场景构成-20260729-20260729.xlsx》；口径=场景构成文件；实际成交按成交金额-成交退款金额，直播间实际成交按直播间成交金额-直播间成交退款金额，其余场景计入商品卡。",
+      "live_actual": 14148.84,
+      "card_actual": 1579.68
+    }
+  ],
+  "youzan_month_override": {
+    "gmv": 1381129.79,
+    "refund": 106592.23,
+    "actual": 1274537.56,
+    "orders": 16563,
+    "refund_records": 934,
+    "daily": {
+      "gmv": 31635.36,
+      "refund": 2162.58,
+      "actual": 29472.78,
+      "orders": 355,
+      "refund_records": 24
+    },
+    "as_of": "2026-07-29",
+    "sources": [
+      "Order_youzan_2026-07-29-22-23-30_39b050f23fa10db08121fcdbe35dfba6.csv",
+      "Order_youzan_2026-07-30-14-36-27_943dd70b6cc286ff7a5597cda912f18f.csv",
+      "Refund_youzan_2026-07-29-22-24-12_8a2f80a89a089bad1c8bd66a9833c3ad.csv",
+      "Refund_youzan_2026-07-30-14-36-40_02180b2a4a6c0665bc63ebe94ed85e7d (1).csv"
+    ],
+    "complete_refund_source": "Refund_youzan_2026-07-29-22-24-12_8a2f80a89a089bad1c8bd66a9833c3ad.csv"
+  }
+}

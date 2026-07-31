@@ -1,0 +1,98 @@
+{
+  "schema": "2.0",
+  "config": {
+    "update_multi": true,
+    "width_mode": "default",
+    "enable_forward": false,
+    "summary": {
+      "content": "点击生成昨日日报"
+    }
+  },
+  "header": {
+    "title": {
+      "tag": "plain_text",
+      "content": "不山经营日报助手"
+    },
+    "subtitle": {
+      "tag": "plain_text",
+      "content": "上传完昨日数据后再执行"
+    },
+    "template": "carmine",
+    "icon": {
+      "tag": "standard_icon",
+      "token": "chart_colorful"
+    },
+    "text_tag_list": [
+      {
+        "tag": "text_tag",
+        "text": {
+          "tag": "plain_text",
+          "content": "手动触发"
+        },
+        "color": "carmine"
+      }
+    ]
+  },
+  "body": {
+    "direction": "vertical",
+    "padding": "12px 12px 20px 12px",
+    "vertical_spacing": "12px",
+    "elements": [
+      {
+        "tag": "column_set",
+        "flex_mode": "none",
+        "columns": [
+          {
+            "tag": "column",
+            "width": "weighted",
+            "weight": 1,
+            "background_style": "carmine-50",
+            "padding": "12px",
+            "vertical_spacing": "4px",
+            "elements": [
+              {
+                "tag": "markdown",
+                "content": "**准备好后，一键生成昨日日报**"
+              },
+              {
+                "tag": "markdown",
+                "content": "<font color='grey'>系统会自动计算昨天日期，检查抖音、有赞、小红书、视频号大号和视频号小号的数据，然后执行可续跑脚本。</font>",
+                "text_size": "notation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "button",
+        "element_id": "run_report",
+        "text": {
+          "tag": "plain_text",
+          "content": "生成昨日日报"
+        },
+        "type": "primary_filled",
+        "size": "large",
+        "width": "fill",
+        "behaviors": [
+          {
+            "type": "callback",
+            "value": {
+              "action": "run_yesterday_report",
+              "version": 1
+            }
+          }
+        ],
+        "confirm": {
+          "title": {
+            "tag": "plain_text",
+            "content": "确认生成昨日日报？"
+          },
+          "text": {
+            "tag": "plain_text",
+            "content": "请确认昨天的五个平台数据已经上传完成。"
+          }
+        }
+      }
+    ]
+  }
+}

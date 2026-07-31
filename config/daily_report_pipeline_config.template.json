@@ -1,0 +1,22 @@
+{
+  "webhook": "YOUR_FEISHU_BOT_WEBHOOK",
+  "base_token": "YOUR_BASE_TOKEN",
+  "base_tables": {
+    "detail": "每日明细+全平台汇总",
+    "channel": "渠道汇总",
+    "share": "分平台销售占比",
+    "month_progress": "7月平台GMV完成情况",
+    "april_progress": "7月平台GMV完成情况",
+    "gmv_report": "全平台GMV日报"
+  },
+  "workbook_path": "./assets/templates/month_workbook.xlsx",
+  "month_goal": 4400000,
+  "month_targets": {
+    "小红书直播": 600000,
+    "抖音直播间": 650000,
+    "商品卡": 450000,
+    "视频号大号": 1250000,
+    "视频号小号": 200000,
+    "有赞": 1250000
+  }
+}

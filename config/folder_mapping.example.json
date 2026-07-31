@@ -1,0 +1,12 @@
+{
+  "local_root": "./data",
+  "feishu_root_folder_token": "YOUR_FEISHU_ROOT_FOLDER_TOKEN",
+  "platform_folders": {
+    "小红书": "YOUR_XIAOHONGSHU_FOLDER_TOKEN",
+    "抖音": "YOUR_DOUYIN_FOLDER_TOKEN",
+    "有赞": "YOUR_YOUZAN_FOLDER_TOKEN",
+    "视频号大号": "YOUR_VIDEO_BIG_FOLDER_TOKEN",
+    "视频号小号": "YOUR_VIDEO_SMALL_FOLDER_TOKEN"
+  },
+  "date_folder_pattern": "YYYY-MM-DD"
+}
