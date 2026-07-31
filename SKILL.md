@@ -28,18 +28,20 @@ Use this skill when any of the following is needed:
 Follow this order:
 
 1. Read `references/workflow-overview.md` to determine which of the three entrypoints applies.
-2. Read `references/business-rules.md` before changing any parsing or aggregation logic.
-3. Read `references/local-ingest-rules.md` when the task starts from downloaded raw files.
-4. Read `references/feishu-trigger-rules.md` when the task starts from the Feishu robot/button/card.
-5. Read `references/troubleshooting.md` when the task involves reruns, stale month totals, workbook corruption, or Youzan cumulative refund checks.
-6. Use the scripts in `scripts/core/` for parsing, workbook updates, and send logic.
-7. Use the scripts in `scripts/entrypoints/` for month/day execution.
-8. Use the scripts in `scripts/automation/` for the Feishu button listener and trigger card.
-9. Before publishing to GitHub, replace all real tokens, webhook URLs, open IDs, and absolute local paths with template values from `config/` and `.env.example`.
+2. Read `references/setup-guide.md` and prefer `scripts/entrypoints/setup_feishu.sh` when the task is first-time Feishu setup or migration.
+3. Read `references/business-rules.md` before changing any parsing or aggregation logic.
+4. Read `references/local-ingest-rules.md` when the task starts from downloaded raw files.
+5. Read `references/feishu-trigger-rules.md` when the task starts from the Feishu robot/button/card.
+6. Read `references/troubleshooting.md` when the task involves reruns, stale month totals, workbook corruption, or Youzan cumulative refund checks.
+7. Use the scripts in `scripts/core/` for parsing, workbook updates, send logic, and interactive setup.
+8. Use the scripts in `scripts/entrypoints/` for setup and month/day execution.
+9. Use the scripts in `scripts/automation/` for the Feishu button listener and trigger card.
+10. Before publishing to GitHub, replace all real tokens, webhook URLs, open IDs, and absolute local paths with template values from `config/` and `.env.example`.
 
 ## References
 
 - `references/workflow-overview.md`: full architecture, three entrypoints, and recommended execution order.
+- `references/setup-guide.md`: first-time setup path for Feishu credentials, folder tokens, and month config.
 - `references/business-rules.md`: reporting rules for each platform, monthly progress logic, product-card definitions, and Youzan refund guardrails.
 - `references/local-ingest-rules.md`: how raw downloads are classified into local date/platform folders and uploaded to Feishu drive.
 - `references/feishu-trigger-rules.md`: how the Feishu robot card, listener, and click-to-run flow are wired.
@@ -49,12 +51,14 @@ Follow this order:
 ## Scripts
 
 - `scripts/core/build_input_json.py`: build one-day normalized input JSON from Feishu or local source files.
+- `scripts/core/setup_feishu_env.py`: interactive setup wizard that writes `.env`, report config, folder mapping, and month targets.
 - `scripts/core/organize_downloads.py`: classify freshly downloaded raw files into `YYYY-MM-DD/平台/` local folders.
 - `scripts/core/upload_to_feishu_drive.py`: upload organized local folders or files into Feishu Drive.
 - `scripts/core/daily_report_pipeline.py`: update workbook, compute month progress, sync Base, and build/send report artifacts.
 - `scripts/core/prepare_month_workbook.py`: create or refresh monthly workbook structure.
 - `scripts/core/refresh_month_progress_base.py`: refresh month progress in Base from workbook data.
 - `scripts/core/send_card.py`: send a generated interactive report card with retry logic.
+- `scripts/entrypoints/setup_feishu.sh`: first-time setup wizard entrypoint.
 - `scripts/entrypoints/run_month_all.sh`: one-shot day runner.
 - `scripts/entrypoints/run_month_resume.sh`: resumable day runner.
 - `scripts/entrypoints/run_local_ingest.sh`: local file organization plus optional Feishu upload handoff.

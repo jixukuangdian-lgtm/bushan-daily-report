@@ -61,15 +61,22 @@ Main files:
 
 ## Quick start
 
-1. Copy `config/.env.example` to `.env` and fill in Feishu values.
-2. Update `config/daily_report_pipeline_config.template.json` for the target month.
-3. Add a sanitized workbook template to `assets/templates/`.
-4. For local-ingest mode:
+1. Run the setup wizard:
+   - `./scripts/entrypoints/setup_feishu.sh`
+2. Add a sanitized workbook template to `assets/templates/`.
+3. For local-ingest mode:
    - run `scripts/entrypoints/run_local_ingest.sh`
-5. For rerun mode:
+4. For rerun mode:
    - run `scripts/entrypoints/run_month_resume.sh --date YYYY-MM-DD`
-6. For Feishu button mode:
+5. For Feishu button mode:
    - send the trigger card with `scripts/automation/send_report_button.sh`
+
+If manual setup is preferred, use:
+
+- `config/.env.example`
+- `config/daily_report_pipeline_config.template.json`
+- `config/folder_mapping.example.json`
+- `config/month_targets.example.json`
 
 ## Important safety rules
 
