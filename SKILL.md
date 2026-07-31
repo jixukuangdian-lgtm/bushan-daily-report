@@ -28,7 +28,7 @@ Use this skill when any of the following is needed:
 Follow this order:
 
 1. Read `references/workflow-overview.md` to determine which of the three entrypoints applies.
-2. Read `references/setup-guide.md` and prefer `scripts/entrypoints/setup_feishu.sh` when the task is first-time Feishu setup or migration.
+2. Read `references/setup-guide.md` and prefer `scripts/entrypoints/guide_configure_feishu_bot.sh` when the task is first-time Feishu bot setup or migration.
 3. Read `references/business-rules.md` before changing any parsing or aggregation logic.
 4. Read `references/local-ingest-rules.md` when the task starts from downloaded raw files.
 5. Read `references/feishu-trigger-rules.md` when the task starts from the Feishu robot/button/card.
@@ -58,7 +58,8 @@ Follow this order:
 - `scripts/core/prepare_month_workbook.py`: create or refresh monthly workbook structure.
 - `scripts/core/refresh_month_progress_base.py`: refresh month progress in Base from workbook data.
 - `scripts/core/send_card.py`: send a generated interactive report card with retry logic.
-- `scripts/entrypoints/setup_feishu.sh`: first-time setup wizard entrypoint.
+- `scripts/entrypoints/guide_configure_feishu_bot.sh`: the most direct "guide me to configure the Feishu bot" entrypoint.
+- `scripts/entrypoints/setup_feishu.sh`: compatibility alias for the same setup flow.
 - `scripts/entrypoints/run_month_all.sh`: one-shot day runner.
 - `scripts/entrypoints/run_month_resume.sh`: resumable day runner.
 - `scripts/entrypoints/run_local_ingest.sh`: local file organization plus optional Feishu upload handoff.

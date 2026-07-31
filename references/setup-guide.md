@@ -7,7 +7,7 @@ Prefer the setup wizard instead of editing JSON files by hand.
 Run:
 
 ```bash
-./scripts/entrypoints/setup_feishu.sh
+./scripts/entrypoints/guide_configure_feishu_bot.sh
 ```
 
 The wizard will:
@@ -23,6 +23,7 @@ The wizard will:
    - `folder_mapping.json`
    - `month_targets.json`
 7. Try to validate Feishu app credentials unless skipped
+8. Check whether `lark-cli` and workbook template path already exist locally
 
 ## Recommended preparation
 
@@ -36,6 +37,18 @@ Prepare these values before running the wizard:
 - One folder token for each platform
 - Operator open id
 - Workbook template path
+
+## Friendly entrypoint name
+
+When the operator only needs the plain-language instruction, use this phrasing:
+
+- "指引我配置飞书机器人"
+
+The matching shell entrypoint is:
+
+```bash
+./scripts/entrypoints/guide_configure_feishu_bot.sh
+```
 
 ## If validation fails
 

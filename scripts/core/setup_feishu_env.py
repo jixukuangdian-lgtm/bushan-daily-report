@@ -96,6 +96,13 @@ def validate_app_credentials(app_id: str, app_secret: str) -> tuple[bool, str]:
     return True, "tenant access token acquired"
 
 
+def validate_local_path(path_text: str) -> tuple[bool, str]:
+    path = Path(path_text).expanduser()
+    if path.exists():
+        return True, f"found: {path}"
+    return False, f"missing: {path}"
+
+
 def main() -> int:
     args = parse_args()
     output_dir = Path(args.output_dir).expanduser().resolve()
@@ -105,8 +112,8 @@ def main() -> int:
     folder_template = load_json(CONFIG_DIR / "folder_mapping.example.json")
     targets_template = load_json(CONFIG_DIR / "month_targets.example.json")
 
-    print("Bushan Feishu setup wizard")
-    print("This will generate .env, daily report config, folder mapping, and month target files.")
+    print("Bushan guide to configure Feishu bot")
+    print("This assistant-style setup will generate .env, report config, folder mapping, and month target files.")
     print()
 
     env_values: dict[str, str] = {}
@@ -174,9 +181,21 @@ def main() -> int:
         print("Skipped live validation.")
 
     print()
+    print("Running local environment checks...")
+    lark_ok, lark_detail = validate_local_path(env_values["BUSHAN_LARK_CLI_PATH"])
+    workbook_ok, workbook_detail = validate_local_path(env_values["BUSHAN_MONTH_WORKBOOK"])
+    print(f"- lark-cli: {'OK' if lark_ok else 'CHECK'} - {lark_detail}")
+    print(f"- workbook template: {'OK' if workbook_ok else 'CHECK'} - {workbook_detail}")
+    missing_platforms = [name for name, token in platform_folders.items() if not token.strip()]
+    print(f"- root upload folder token: {'OK' if folder_mapping['feishu_root_folder_token'].strip() else 'CHECK'}")
+    print(f"- platform folder tokens: {'OK' if not missing_platforms else 'CHECK'}")
+    if missing_platforms:
+        print(f"  Missing platform tokens: {', '.join(missing_platforms)}")
+
+    print()
     print("Next recommended steps:")
-    print("1. Place your workbook template at the configured workbook path.")
-    print("2. Confirm Feishu folder tokens in folder_mapping.json.")
+    print("1. If workbook template is missing, place it at the configured workbook path.")
+    print("2. If any folder token is missing, reopen the guide and fill it in.")
     print("3. Run the local ingest or month resume entrypoint.")
     return 0
 

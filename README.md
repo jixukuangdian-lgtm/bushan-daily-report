@@ -61,8 +61,8 @@ Main files:
 
 ## Quick start
 
-1. Run the setup wizard:
-   - `./scripts/entrypoints/setup_feishu.sh`
+1. Run the guide that configures the Feishu bot:
+   - `./scripts/entrypoints/guide_configure_feishu_bot.sh`
 2. Add a sanitized workbook template to `assets/templates/`.
 3. For local-ingest mode:
    - run `scripts/entrypoints/run_local_ingest.sh`
@@ -94,3 +94,13 @@ Example:
 ```bash
 python3.11 /Users/jixukuangdian/.agents/skills/skill-creator/scripts/package_skill.py /path/to/bushan-data-ops ./dist
 ```
+
+## Configuration entrypoint name
+
+If the goal is simply "guide me to configure the Feishu bot", use:
+
+```bash
+./scripts/entrypoints/guide_configure_feishu_bot.sh
+```
+
+The older `setup_feishu.sh` entrypoint is kept as a compatibility alias.
